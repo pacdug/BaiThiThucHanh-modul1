@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <script>
+
+        let n = +prompt("Nhập số lượng phần tử không quá 50:");
+        while (n <= 0 || n > 50) {
+            n = +prompt("Nhập lại số lượng phần tử:");
+        }
+
+        let arr = [];
+        for(let i = 0; i < n; i++) {
+            arr.push(+prompt("Nhập phần tử:"));
+        }
+
+        function sumNum(arr1) {
+            let sum = 0;
+            let count = 0;
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] % 3 === 0) {
+                    sum += arr1[i];
+                    count++;
+                }
+            }
+            let avg =  sum / count ;
+            return avg;
+        }
+
+        let result = sumNum(arr);
+        document.write("Trung bình cộng các số chia hết cho 3: " + result);
+    </script>
 </body>
 </html>

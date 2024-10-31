@@ -6,29 +6,28 @@
 </head>
 <body>
   <h1>Tính Số Ngày Trong Tháng</h1>
-  <p>Nhập tháng và năm:</p>
-  <label for="month">Tháng:</label>
-  <input type="number" id="month" min="1" max="12" placeholder="MM" required>
-  <br>
-  <label for="year">Năm:</label>
-  <input type="number" id="year" min="1" placeholder="YYYY" required>
-  <br>
+  <p>Nhập tháng và năm (định dạng MM/YYYY):</p>
+  <input type="text" id="monthYear" placeholder="MM/YYYY" required>
   <button onclick="calculateDays()">Tính Số Ngày</button>
   <p id="result"></p>
-
   <script>
     function isLeapYear(year) {
       return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
     }
+
     function calculateDays() {
-      let month = parseInt(document.getElementById('month').value, 10);
-      let year = parseInt(document.getElementById('year').value, 10);
+      let input = document.getElementById('monthYear').value;
       let result = document.getElementById('result');
 
-      if (isNaN(month) || isNaN(year) || month < 1 || month > 12 || year < 1) {
-        result.textContent = "Vui lòng nhập tháng từ 1 đến 12 và năm lớn hơn 0.";
+      let regex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+      if (!regex.test(input)) {
+        result.textContent = "Vui lòng nhập đúng định dạng MM/YYYY.";
         return;
       }
+
+      let parts = input.split('/');
+      let month = parseInt(parts[0], 10);
+      let year = parseInt(parts[1], 10);
 
       let daysInMonth;
       if (month === 2) {
@@ -36,8 +35,9 @@
       } else {
         daysInMonth = new Date(year, month, 0).getDate();
       }
+
       result.textContent = "Tháng " + month + " năm " + year + " có " + daysInMonth + " ngày.";
     }
-</script>
+  </script>
 </body>
 </html>

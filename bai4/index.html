@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Quản Lý Công Nhân</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
-$END$
+  <h1>Quản Lý Công Nhân</h1>
+  <h2>Thêm Công Nhân</h2>
+  <form id="workerForm">
+    <label for="name">Họ và Tên:</label>
+    <input type="text" id="name" required>
+    <br>
+    <label for="dob">Ngày Sinh:</label>
+    <input type="date" id="dob" required>
+    <br>
+    <label for="address">Địa Chỉ:</label>
+    <input type="text" id="address" required>
+    <br>
+    <label for="salary">Lương:</label>
+    <input type="number" id="salary" required>
+    <br>
+    <label for="position">Chức Vụ:</label>
+    <input type="text" id="position" required>
+    <br>
+    <button type="button" onclick="addWorker()">Thêm Công Nhân</button>
+  </form>
+  <h2>Danh Sách Công Nhân</h2>
+  <table id="workerTable">
+    <thead>
+    <tr>
+      <th>STT</th>
+      <th>Họ và Tên</th>
+      <th>Ngày Sinh</th>
+      <th>Địa Chỉ</th>
+      <th>Lương</th>
+      <th>Chức Vụ</th>
+      <th>Hành Động</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
 </body>
 </html>

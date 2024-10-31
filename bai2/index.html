@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+  <p>Nhập vào một số để kiểm tra:</p>
+  <input type="number" id="inputNumber">
+  <button onclick="checkPerfectNumber()">Kiểm Tra</button>
+  <p id="result"></p>
+  <script>
+    function isPerfectNumber(num) {
+      if (num <= 1) return false;
+
+      let sum = 0;
+      for (let i = 1; i <= num / 2; i++) {
+        if (num % i === 0) {
+          sum += i;
+        }
+      }
+
+      return sum === num;
+    }
+
+    function checkPerfectNumber() {
+      let inputNumber = parseInt(document.getElementById('inputNumber').value, 10);
+      let result = document.getElementById('result');
+
+      if (isPerfectNumber(inputNumber)) {
+        result.textContent = inputNumber + " là số hoàn hảo.";
+      } else {
+        result.textContent = inputNumber + " không phải là số hoàn hảo.";
+      }
+    }
+  </script>
 </body>
 </html>
